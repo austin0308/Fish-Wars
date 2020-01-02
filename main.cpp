@@ -3,7 +3,7 @@
 //  Fish War, Method
 //
 //  Created by Austin Le on 9/11/19.
-//  Copyright © 2019 Austin Le. All rights reserved.
+//  Copyright Â© 2019 Austin Le. All rights reserved.
 //
 #include <iostream>
 #include <iomanip>
@@ -68,9 +68,31 @@ int main(int argc, const char * argv[]) {
         //takes in the player input
         cin >> player;
         
-        //calls the function to search and delete the
-        //input from the customers
-        SearchAndDelete(player);
+        //for loop to keep asking the
+        //user for a valid input
+        for (int i = 0; i < 15; i++)
+        //put 15 as the max rather than userDeck.size(),
+        //since the userdeck size is decreasing throughout the game
+        {
+            //checks to see if the user input is in the vector
+            if (find(userDeck.begin(), userDeck.end(), player) != userDeck.end())
+            {
+                //calls the function to search and delete the
+                //input from the customers
+                SearchAndDelete(player);
+                break;
+            }
+            else
+            {
+                //asks for the users input again
+                //for inputting something invalid
+                cout << "Card Already Played. Try Again\n" << endl;
+                cin >> player;
+            }
+        }
+        
+
+        
 
         //call the AI turn function and returns a
         //value the AI chose
@@ -190,77 +212,9 @@ int computerTurn()
             break;
         }
     }
-    //switch statement that deletes the value from array
-    switch (randChoice)
-    {
-            //based on number randomly created, 1-13,
-            //it will delete that value from the vector
-        case 1:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 2:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 3:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 4:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 5:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 6:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 7:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 8:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 9:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 10:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 11:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 12:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-        case 13:
-        {
-            cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
-            break;
-        }
-    }
+    
+    //deletes input from the vector
+    cpuDeck.erase(remove(cpuDeck.begin(), cpuDeck.end(), randChoice), cpuDeck.end());
     
     //returns the randomly
     //generated value
@@ -281,74 +235,6 @@ void AddValuesToVector()
 
 void SearchAndDelete(int playerCard)
 {
-    //switch statement that deletes the value from array
-    //based on the users input
-    switch (playerCard)
-    {
-        case 1:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 2:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 3:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 4:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 5:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 6:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 7:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 8:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 9:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 10:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 11:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 12:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-        case 13:
-        {
-            userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
-            break;
-        }
-    }
+    //deletes value from vector based on the user input
+    userDeck.erase(remove(userDeck.begin(), userDeck.end(), playerCard), userDeck.end());
 }
